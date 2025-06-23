@@ -1,17 +1,23 @@
 <h2>
   Users:
 </h2>
+@if (userId()) {
+  Selected User Id is: {{ userId() }}
+}
 
-  <app-users [users]="users$ | async" (selectedUser)="onSelectedUser($event)"></app-users>
+<hr>
+
+<app-users [users]="users()" [(selectedUser)]="selectedUser"></app-users>
+
 
 <hr>
 
 <h2>Posts:</h2>
 
-  <app-posts [posts]="posts$ | async" (selectedPost)="onSelectedPost($event)"></app-posts>
+<app-posts [posts]="posts()" [(selectedPost)]="selectedPost"></app-posts>
 
 <hr>
 
 <h2>Comments:</h2>
 
-<app-comments [comments]="comments$ | async"></app-comments>
+<app-comments [comments]="comments()"></app-comments>

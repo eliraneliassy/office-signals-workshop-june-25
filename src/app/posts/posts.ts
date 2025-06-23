@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, input, Input, model, Output} from '@angular/core';
 import {Post} from '../post.interface';
 
 @Component({
@@ -10,12 +10,12 @@ import {Post} from '../post.interface';
 })
 export class PostsComponent {
 
-  @Input() posts!: Post[] | null ;
+  posts = input<Post[] | null | undefined>([]) ;
 
-  @Output() selectedPost = new EventEmitter<Post>();
+  selectedPost =model<Post | undefined>(undefined);
 
   onSelect(post: Post) {
-    this.selectedPost.emit(post);
+    this.selectedPost.set(post);
   }
 
 }

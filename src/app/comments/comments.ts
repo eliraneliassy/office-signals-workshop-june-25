@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, input, Input} from '@angular/core';
 import {PostComment} from '../post-comment.interface';
 
 @Component({
@@ -10,6 +10,6 @@ import {PostComment} from '../post-comment.interface';
 })
 export class Comments {
 
-  @Input() comments!: PostComment[] | null;
+  comments = input<PostComment[] | null | undefined>([]);
 
 }
