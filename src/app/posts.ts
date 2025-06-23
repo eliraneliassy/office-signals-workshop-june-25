@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, httpResource} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from './user.interface';
 import {Post} from './post.interface';
@@ -12,10 +12,12 @@ export class PostsService {
 
   httpClient = inject(HttpClient);
 
+
   BASE_URL = `https://jsonplaceholder.typicode.com`;
 
-  getUser(): Observable<User[]> {
-    return this.httpClient.get<User[]>(`${this.BASE_URL}/users`);
+  getUser(){ //Observable<User[]> {
+    // return this.httpClient.get<User[]>(`${this.BASE_URL}/users`);
+    return httpResource<User[]>(() => `${this.BASE_URL}/users`);
   }
 
   getPosts(userId: number): Observable<Post[]> {

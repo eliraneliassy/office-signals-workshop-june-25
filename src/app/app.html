@@ -7,17 +7,21 @@
 
 <hr>
 
-<app-users [users]="users()" [(selectedUser)]="selectedUser"></app-users>
+<app-users [users]="users.value()" [(selectedUser)]="selectedUser"></app-users>
 
 
 <hr>
 
 <h2>Posts:</h2>
+@if (posts.isLoading()) {
+  Loading...
+} @else {
+  <app-posts [posts]="posts.value()" [(selectedPost)]="selectedPost"></app-posts>
+}
 
-<app-posts [posts]="posts()" [(selectedPost)]="selectedPost"></app-posts>
 
 <hr>
 
 <h2>Comments:</h2>
 
-<app-comments [comments]="comments()"></app-comments>
+<app-comments [comments]="comments.value()"></app-comments>

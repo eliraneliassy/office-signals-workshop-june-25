@@ -10,6 +10,6 @@ import {PostComment} from '../post-comment.interface';
 })
 export class Comments {
 
-  comments = input<PostComment[] | null | undefined>([]);
+  comments = input<PostComment[] | null | undefined | any>([]);
 
 }
